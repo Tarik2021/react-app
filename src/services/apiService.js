@@ -1,8 +1,8 @@
 import axios from "axios";
-const apiUrl = "http//:localhost:5000";
+const apiUrl = "http://localhost:5000";
 const headers = {
   "Content-Type": "application/json",
-  "Accept": "application/json",
+  Accept: "application/json",
 };
 
 const insert = (path, data, callback) => {

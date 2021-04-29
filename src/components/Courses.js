@@ -1,11 +1,11 @@
 import {useEffect, useState} from "react";
 import {list} from "../services/apiService";
+import {Link} from "react-router-dom";
 
 const Courses = () => {
   const [courses, setCourses] = useState([]);
   useEffect(() => {
-    list("courses", data => {
-      console.log(data);
+    list("courses", (data) => {
       setCourses(data);
     });
   }, []);
@@ -18,13 +18,19 @@ const Courses = () => {
           <tr>
             <th>Course Name</th>
             <th>Points</th>
+            <td>
+              <Link to="/courses/0">Add new</Link>
+            </td>
           </tr>
         </thead>
         <tbody>
-          {courses.map(c => (
-            <tr>
+          {courses.map((c) => (
+            <tr key={c._id}>
               <td>{c.name}</td>
               <td>{c.points}</td>
+              <td>
+                <Link to={`/courses/${c._id}`}>Edit</Link>
+              </td>
             </tr>
           ))}
         </tbody>
