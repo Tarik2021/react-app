@@ -6,7 +6,7 @@ const Course = ({match, history}) => {
   const [course, setCourse] = useState({
     _id: "0",
     name: "",
-    points: 0,
+    points: "",
   });
 
   useEffect(() => {
@@ -36,8 +36,8 @@ const Course = ({match, history}) => {
         console.log("There was error during save data");
       });
     } else {
-      update("course", course, (data) => {
-        if (data) history.push("/courses");
+      update("courses", id, course, (data) => {
+        if (data) return history.push("/courses");
         console.log("There was error during save data");
       });
     }
@@ -57,13 +57,13 @@ const Course = ({match, history}) => {
           <label className="colorizer" htmlFor="name">
             Course name:{" "}
           </label>
-          <input type="text" name="name" value={course.name} onChange={changeHandler} />
+          <input type="text" placeholder="Enter course name" name="name" value={course.name} onChange={changeHandler} required="required"/>
         </div>
         <div style={{margin: "12px 0"}}>
           <label className="colorizer" htmlFor="points">
             Course points:{" "}
           </label>
-          <input type="text" name="points" value={course.points} onChange={changeHandler} />
+          <input type="text" placeholder="Enter course points" name="points" value={course.points} onChange={changeHandler} required="required"/>
         </div>
         <hr className="colorizer" />
         {id !== "0" && (
