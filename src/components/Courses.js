@@ -12,14 +12,14 @@ const Courses = () => {
 
   return (
     <div className="container">
-      <h1>Courses</h1>
-      <table>
+      <h1 className="colorizer">Courses</h1>
+      <table className="tabela">
         <thead>
           <tr>
             <th>Course Name</th>
             <th>Points</th>
             <td>
-              <Link to="/courses/0">Add new</Link>
+              <Link className="links" to="/courses/0">Add new</Link>
             </td>
           </tr>
         </thead>
@@ -29,7 +29,7 @@ const Courses = () => {
               <td>{c.name}</td>
               <td>{c.points}</td>
               <td>
-                <Link to={`/courses/${c._id}`}>Edit</Link>
+                <Link className="links" to={`/courses/${c._id}`}>Edit</Link>
               </td>
             </tr>
           ))}

@@ -1,29 +1,47 @@
 table {
   margin: 24px;
-  border: 2px solid blue;
+  border: 2px solid rgb(226, 180, 0);
 }
 
 table th {
-  background-color: blue;
-  color: white;
+  background-color: rgb(226, 180, 0);
 }
 
 table tr {
   cursor: pointer;
-  background-color: grey;
+  background-color: rgb(226, 180, 0);
   height: 18px;
 }
 
 table tr:nth-child(2n + 1) {
-  background-color: green;
+  background-color: rgb(226, 166, 0);
 }
 
 table td {
   padding: 2px 8px;
-  border-right: 1px solid blue;
+  border-right: 1px solid rgb(226, 180, 0);
 }
 
 table td:last-child {
-    padding: 2px 8px;
-    border-right: none;
+  padding: 2px 8px;
+  border-right: none;
+}
+
+.btn {
+  background-color:transparent;
+	border-radius:10px;
+	border:1px solid #ffaa22;
+	display:inline-block;
+	cursor:pointer;
+	color:rgb(226, 180, 0);
+}
+
+.btn:hover {
+	position:relative;
+	top:1px;
+}
+
+.tabela {
+  margin-left: auto;
+  margin-right: auto;
 }

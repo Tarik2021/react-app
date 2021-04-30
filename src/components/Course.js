@@ -36,7 +36,7 @@ const Course = ({match, history}) => {
         console.log("There was error during save data");
       });
     } else {
-      update("course", id, course, (data) => {
+      update("course", course, (data) => {
         if (data) history.push("/courses");
         console.log("There was error during save data");
       });
@@ -51,30 +51,34 @@ const Course = ({match, history}) => {
 
   return (
     <div className="container">
-      <h1>Course</h1>
+      <h1 className="colorizer">Course</h1>
       <form className="input-form">
         <div style={{margin: "12px 0"}}>
-          <label htmlFor="name">Course name: </label>
+          <label className="colorizer" htmlFor="name">
+            Course name:{" "}
+          </label>
           <input type="text" name="name" value={course.name} onChange={changeHandler} />
         </div>
         <div style={{margin: "12px 0"}}>
-          <label htmlFor="points">Course points: </label>
+          <label className="colorizer" htmlFor="points">
+            Course points:{" "}
+          </label>
           <input type="text" name="points" value={course.points} onChange={changeHandler} />
         </div>
-        <hr />
+        <hr className="colorizer" />
         {id !== "0" && (
           <div className="left">
-            <button type="button" onClick={del}>
+            <button className="btn" type="button" onClick={del}>
               DELETE
             </button>
           </div>
         )}
         <div className="right">
-          <button type="button" onClick={back}>
+          <button className="btn" type="button" onClick={back}>
             BACK
           </button>
           &nbsp;&nbsp;
-          <button type="button" onClick={save}>
+          <button className="btn" type="button" onClick={save}>
             SAVE
           </button>
         </div>

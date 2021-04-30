@@ -4,8 +4,8 @@ const Home = () => {
   return (
       <div className="container">
           <img src={logo} alt="logo" />
-          <div>
-              Welcome dragi gosti
+          <div className="title">
+              Welcome to Hogwarts School of Witchcraft and Wizardry
           </div>
       </div>
   );

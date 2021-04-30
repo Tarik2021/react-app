@@ -15,6 +15,16 @@ const insert = (path, data, callback) => {
     });
 };
 
+const update = (path, id, data, callback) => {
+  axios
+    .put(`${apiUrl}/${path}/${id}`, data, {headers})
+    .then((response) => callback(response.data))
+    .catch((reason) => {
+      console.log(reason);
+      callback(false);
+    });
+};
+
 const list = (path, callback) => {
   axios
     .get(`${apiUrl}/${path}`, {headers})
@@ -28,16 +38,6 @@ const list = (path, callback) => {
 const read = (path, id, callback) => {
   axios
     .get(`${apiUrl}/${path}/${id}`, {headers})
-    .then((response) => callback(response.data))
-    .catch((reason) => {
-      console.log(reason);
-      callback(false);
-    });
-};
-
-const update = (path, id, data, callback) => {
-  axios
-    .put(`${apiUrl}/${path}/${id}`, data, {headers})
     .then((response) => callback(response.data))
     .catch((reason) => {
       console.log(reason);

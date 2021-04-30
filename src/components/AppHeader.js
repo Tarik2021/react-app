@@ -1,4 +1,4 @@
-import logo from "../assets/images/paragon.png";
+import logo from "../assets/images/hp.png";
 import Navigator from "./Navigator";
 
 const AppHeader = () => {
@@ -6,9 +6,6 @@ const AppHeader = () => {
     <header>
       <div className="left">
         <img src={logo} alt="logo" />
-      </div>
-      <div className="left">
-        <h2>My Header</h2>
       </div>
       <div className="right">
         <Navigator />
