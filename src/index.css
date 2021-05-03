@@ -52,9 +52,9 @@ hr.colorizer {
   color: white;
 }
 
-input[type=text] {
+input[type="text"] {
   background-color: rgb(226, 180, 0);
   color: #07447a;
   font-weight: bold;
- 
 }
+

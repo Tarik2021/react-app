@@ -2,6 +2,7 @@ import {useState, useEffect} from "react";
 import {read, insert, update, remove} from "../services/apiService";
 
 const Student = ({match, history}) => {
+  const [inputReq, inputReqMsg] = useState("");
   const [id] = useState(match.params.id);
   const [student, setStudent] = useState({
     _id: "0",
@@ -31,17 +32,21 @@ const Student = ({match, history}) => {
   };
 
   const save = () => {
-    if (id === "0") {
-      student._id = undefined;
-      insert("students", student, (data) => {
-        if (data) return history.push("/students");
-        console.log("There was error during save data");
-      });
+    if (!student.firstName || !student.lastName) {
+      inputReqMsg("This field is required in Wizarding World. To proceed fill it out!");
     } else {
-      update("students", id, student, (data) => {
-        if (data) history.push("/students");
-        console.log("There was error during save data");
-      });
+      if (id === "0") {
+        student._id = undefined;
+        insert("students", student, (data) => {
+          if (data) return history.push("/students");
+          console.log("There was error during save data");
+        });
+      } else {
+        update("students", id, student, (data) => {
+          if (data) history.push("/students");
+          console.log("There was error during save data");
+        });
+      }
     }
   };
 
@@ -61,12 +66,14 @@ const Student = ({match, history}) => {
           </label>
           <input type="text" placeholder="Enter first name of student" name="firstName" value={student.firstName} onChange={changeHandler} required="required" />
         </div>
+        <p style={{color: "red", fontSize: "10px"}} className="inputReqMsg">{inputReq}</p>
         <div style={{margin: "12px 0"}}>
           <label className="colorizer" htmlFor="lastName">
             Last name:{" "}
           </label>
-          <input type="text" placeholder="Enter last name of student" name="lastName" value={student.lastName} onChange={changeHandler} required="required"/>
+          <input type="text" placeholder="Enter last name of student" name="lastName" value={student.lastName} onChange={changeHandler} required="required" />
         </div>
+        <p style={{color: "red", fontSize: "10px"}} className="inputReqMsg">{inputReq}</p>
         <div style={{margin: "12px 0"}}>
           <label className="colorizer" htmlFor="yearOfBirth">
             Year of Birth:{" "}

@@ -28,17 +28,17 @@ table td:last-child {
 }
 
 .btn {
-  background-color:transparent;
-	border-radius:10px;
-	border:1px solid #ffaa22;
-	display:inline-block;
-	cursor:pointer;
-	color:rgb(226, 180, 0);
+  background-color: transparent;
+  border-radius: 10px;
+  border: 1px solid #ffaa22;
+  display: inline-block;
+  cursor: pointer;
+  color: rgb(226, 180, 0);
 }
 
 .btn:hover {
-	position:relative;
-	top:1px;
+  position: relative;
+  top: 1px;
 }
 
 .tabela {
